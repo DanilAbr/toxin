@@ -1,0 +1,130 @@
+.main-nav {
+  position: relative;
+}
+
+.main-nav__list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.main-nav__item {
+  border-top: 1px solid var(--dark-25);
+
+  &:last-child {
+    border-bottom: 1px solid var(--dark-25);
+  }
+}
+
+.main-nav__link {
+  @include link-states;
+
+  display: block;
+  padding-top: 17px;
+  padding-bottom: 17px;
+  padding-left: 75px;
+
+  color: var(--dark-50);
+  line-height: 17px;
+  text-decoration: none;
+  transition: opacity 0.1s ease-out;
+
+  &--active {
+    color: var(--dark-75);
+    font-weight: 700;
+  }
+}
+
+.main-nav__link--with-opener {
+  background-image: url("/images/icon-opener.svg");
+  background-position: left 36px center;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: $max-mobile-width) {
+  .main-nav--closed .main-nav__list {
+    display: none;
+  }
+
+  .main-nav__toggle {
+    @include link-states;
+
+    position: absolute;
+    top: -50px;
+    right: 30px;
+
+    padding: 0;
+    width: 28px;
+    height: 28px;
+
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+
+      width: 28px;
+      height: 1px;
+
+      background-color: var(--dark-50);
+    }
+  }
+
+  .main-nav--opened .main-nav__toggle {
+    &::before {
+      transform: rotate(-45deg);
+    }
+
+    &::after {
+      transform: rotate(45deg);
+    }
+  }
+
+  .main-nav--closed .main-nav__toggle {
+    &::after {
+      content: none;
+    }
+
+    &::before {
+      box-shadow: 0 8px 0 0 var(--dark-50), 0 -8px 0 0 var(--dark-50);
+    }
+  }
+}
+
+@media (min-width: $tablet-width) {
+  .main-nav {
+    margin-left: auto;
+  }
+
+  .main-nav__toggle {
+    display: none;
+  }
+
+  .main-nav__list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .main-nav__item {
+    border-top: none;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .main-nav__link {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .main-nav__link--with-opener {
+    background-position: right 3px center;
+  }
+}

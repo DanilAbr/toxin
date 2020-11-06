@@ -1,0 +1,22 @@
+mixin main-nav
+  nav.main-nav.main-nav--closed
+    button.main-nav__toggle(
+      type='button'
+      aria-label='Закрыть меню'
+    )
+    ul.main-nav__list
+      -
+        const menu = [
+          {url: '#/about-us.html', text: 'О нас', isActive: true},
+          {url: '#/service.html', text: 'Услуги', withOpener: true},
+          {url: '#/vacancies.html', text: 'Вакансии'},
+          {url: '#/news.html', text: 'Новости'},
+          {url: '#/contracts.html', text: 'Соглашения', withOpener: true},
+        ];
+      each element in menu
+        li.main-nav__item
+          a.main-nav__link(
+            class={'main-nav__link--active': element.isActive}
+            class={'main-nav__link--with-opener': element.withOpener}
+            href=element.url
+          ) #{element.text}

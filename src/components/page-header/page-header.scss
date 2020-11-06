@@ -1,0 +1,24 @@
+.page-header {
+  padding-top: 20px;
+}
+
+.page-header__logo {
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+@media (min-width: $tablet-width) {
+  .page-header {
+    display: flex;
+    align-items: center;
+    max-width: none;
+    padding-right: 50px;
+    padding-left: 50px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .page-header__logo {
+    margin: 0;
+  }
+}

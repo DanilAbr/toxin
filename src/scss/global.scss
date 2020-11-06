@@ -1,0 +1,28 @@
+@import 'fonts.scss';
+@import 'variables.scss';
+@import 'mixins.scss';
+
+:root {
+  --dark-100: #1F2041;
+  --dark-75: #575870;
+  --dark-50: #8f8fa0;
+  --dark-25: #c7c7cf;
+  --dark-5: #f4f4f6;
+  --purple: #bc9cff;
+  --green: #6fcf97;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 14px;
+}
+
